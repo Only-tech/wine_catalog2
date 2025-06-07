@@ -1,0 +1,40 @@
+services:
+  php:
+    image: php:8.3-apache
+    container_name: catalog_php
+    ports:
+      - "8090:80"
+    volumes:
+      - ./php:/var/www/html
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+  db:
+    image: postgres:15
+    container_name: catalog_db
+    environment:
+      POSTGRES_PASSWORD: wine
+      POSTGRES_USER: wine
+      POSTGRES_DB: winecatalog
+      PGUSER: wine
+      POSTGRES_HOST_AUTH_METHOD: trust
+    volumes:
+      - ./data.sql:/docker-entrypoint-initdb.d/data.sql
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: catalog_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: "False"
+    ports:
+      - "8091:80"
+    volumes:
+      - ./servers.json:/pgadmin4/servers.json
+    depends_on:
+      - db

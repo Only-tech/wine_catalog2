@@ -1,0 +1,80 @@
+@font-face {
+    font-family: 'allison-regular';
+    src: url('../fonts/Allison/Allison-Regular.ttf') format('woff2'),
+         url('../fonts/Allison/Allison-Regular.ttf') format('woff'),
+         url('../fonts/Allison/Allison-Regular.ttf') format('truetype');
+}
+
+
+@font-face {
+    font-family: 'montserrat-regular';
+    src: url('../fonts/Montserrat/static/Montserrat-Regular.ttf') format('woff2'),
+         url('../fonts/Montserrat/static/Montserrat-Regular.ttf') format('woff');
+}
+
+
+@font-face {
+    font-family: 'montserrat-medium';
+    src: url('../fonts/Montserrat/static/Montserrat-Medium.ttf') format('woff2'),
+         url('../fonts/Montserrat/static/Montserrat-Medium.ttf') format('woff');
+}
+
+
+@font-face {
+    font-family: 'montserrat-bold';
+    src: url('../fonts/Montserrat/static/Montserrat-Bold.ttf') format('woff2'),
+         url('../fonts/Montserrat/static/Montserrat-Bold.ttf') format('woff');
+}
+
+
+@font-face {
+    font-family: 'montserrat-semibold';
+    src: url('../fonts/Montserrat/static/Montserrat-SemiBold.ttf') format('woff2'),
+         url('../fonts/Montserrat/static/Montserrat-SemiBold.ttf') format('woff');
+}
+
+
+@font-face {
+    font-family: 'montserrat-extrabold';
+    src: url('../fonts/Montserrat/static/Montserrat-ExtraBold.ttf') format('woff2'),
+         url('../fonts/Montserrat/static/Montserrat-ExtraBold.ttf') format('woff');
+}
+
+
+@font-face {
+    font-family: 'montserrat-italic';
+    src: url('../fonts/Montserrat/static/Montserrat-Italic.ttf') format('woff2'),
+         url('../fonts/Montserrat/static/Montserrat-Italic.ttf') format('woff');
+}
+
+
+@font-face {
+    font-family: 'poppins-medium';
+    src: url('../fonts/Poppins/Poppins-Medium.ttf') format('woff2'),
+         url('../fonts/Poppins/Poppins-Medium.ttf') format('woff');
+}
+
+
+@font-face {
+    font-family: 'poppins-bold';
+    src: url('../fonts/Poppins/Poppins-Bold.ttf') format('woff2'),
+         url('../fonts/Poppins/Poppins-Bold.ttf') format('woff');
+}
+
+
+@font-face {
+    font-family: 'poppins-semibold';
+    src: url('../fonts/Poppins/Poppins-SemiBold.ttf') format('woff2'),
+         url('../fonts/Poppins/Poppins-SemiBold.ttf') format('woff');
+}
+
+
+@font-face {
+    font-family: 'poppins-regular';
+    src: url('../fonts/Poppins/Poppins-Regular.ttf') format('woff2'),
+         url('../fonts/Poppins/Poppins-Regular.ttf') format('woff');
+}
+
+
+
+
