@@ -74,15 +74,19 @@ if (!$wine) {
                         </div>
                     </form>
                 </div>
-                <p>
-                    <?php
-                    // Convert **text** and \n to <strong>text</strong> and <br>
-                    $formatted_description = preg_replace('/\*\*(.*?)\*\*/', '<strong>$1</strong>', $wine['description']);
-                    $formatted_description = preg_replace('/\\\n/', '<br>', $formatted_description);
-                    // Sanitize the final output for security
-                    echo strip_tags($formatted_description, '<br><strong><b>');
-                    ?>
-                </p>
+                <div>
+                    <p>
+                        <?php
+                        // Convert **text** and \n to <strong>text</strong> and <br>
+                        $formatted_description = preg_replace('/\*\*(.*?)\*\*/', '<strong>$1</strong>', $wine['description']);
+                        $formatted_description = preg_replace('/\\\n/', '<br>', $formatted_description);
+                        // Sanitize the final output for security
+                        echo strip_tags($formatted_description, '<br><strong><b>');
+                        ?>
+                    </p>
+                    <p><br><br><strong>👇 Ce que nos clients pensent de ce produit 👇</strong><br></p>
+                    <p><br><?php echo htmlspecialchars($wine['avis']); ?></p>
+                </div>
 
             </div>
 

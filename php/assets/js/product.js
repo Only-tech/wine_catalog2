@@ -17,7 +17,7 @@
             currentItemId = itemId;
             modalMessage.textContent = message;
             modalItemDetails.innerHTML = `
-                <img src="assets/images/${itemImage}" alt="${itemName}">
+                <img src="${itemId}" alt="${itemName}">                
                 <div class="modal-item-info">
                     <strong>${itemName}</strong>
                     <span>${parseFloat(itemPrice).toFixed(2)} €</span>

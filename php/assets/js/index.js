@@ -1,25 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
-    //  Code pour le son au survol/scroll 
-    document.querySelector('.catalogue-container').addEventListener("wheel", function(event) {
-        if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
-            let sound = document.getElementById("scroll-sound");
-            if (sound) {
-                sound.currentTime = 0;
-                sound.play().catch(e => console.error("Erreur de lecture audio:", e));
-            }
-        }
-    });
+    //  Code pour le son au survol/
+    const sound = new Audio("assets/sounds/sound-card-mouse-enter.m4a");
+    const cards = document.querySelectorAll(".wine-card");
 
-    document.querySelectorAll('.wine-card').forEach(card => {
-        card.addEventListener("mouseenter", function() {
-            let sound = document.getElementById("scroll-sound");
-            if (sound) {
-                sound.currentTime = 0;
-                sound.play().catch(e => console.error("Erreur de lecture audio:", e));
-            }
+    cards.forEach(card => {
+        card.addEventListener("mouseenter", () => {
+            // sound.currentTime = 0;
+            sound.play();
         });
     });
-    //  FIN du code pour le son au survol/scroll
+    //  FIN du code pour le son au survol
 
     //  DEBUT du code pour l'ajout au panier AJAX et le modal 
     const addToCartForms = document.querySelectorAll('.add-to-cart-form');
@@ -38,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         currentItemId = itemId;
         modalMessage.textContent = message;
         modalItemDetails.innerHTML = `
-                <img src="/..assets/images/${itemImage}" alt="${itemName}">
+                <img src="${itemId}" alt="${itemName}">
                 <div class="modal-item-info">
                     <strong>${itemName}</strong>
                     <span>${parseFloat(itemPrice).toFixed(2)} €</span>
@@ -81,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault(); // Empêche la soumission normale du formulaire
 
             // Extrait les détails du produit de closest .product-card
-            const wineCard = form.closest('.wine-card'); // For index.php
+            const wineCard = form.closest('.wine-card');
             let productName = '';
             let productPrice = '';
             let productImageSrc = '';

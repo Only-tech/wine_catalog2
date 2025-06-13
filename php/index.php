@@ -27,34 +27,29 @@ if (isset($_GET['search']) && $_GET['search'] !== '') {
     $params[':search'] = $searchTerm;
 }
 
-$sql .= " ORDER BY id"; // Tri toujours par ID
+$sql .= " ORDER BY id";
 
 // Préparation et exécution de la requête
 $query = $db->prepare($sql);
 $query->execute($params);
 $wines = $query->fetchAll(PDO::FETCH_ASSOC);
 
+// Filtration des vins pour le carrousel 
+$carouselWines = [];
+foreach ($wines as $wine) {
+    // 'price' est un nombre pour la comparaison
+    if (isset($wine['price']) && is_numeric($wine['price']) && $wine['price'] > 200.00) {
+        $carouselWines[] = $wine;
+    }
+}
+
 require("disconnect.php");
 ?>
 
 <main>
     <section class="catalogue-container">
-        <h3>Chaque vin a une histoire, une saveur unique à explorer</h3>
-        <h5>Plongez dans notre sélection et laissez-vous surprendre par des merveilles gustatives</h5>
+        <h3 class="catalogue-intro">Plongez dans notre sélection et laissez-vous surprendre par des merveilles gustatives</h3>
 
-        <div class="search-bar-container">
-            <form action="index.php" method="get" class="search-form">
-                <input type="search" name="search" placeholder="Rechercher un vin 🍷🍾"
-                    value="<?php echo htmlspecialchars($_GET['search'] ?? ''); ?>">
-                <button type="submit" class="search-button">Rechercher</button>
-                <?php
-                // Affiche un bouton "X" pour effacer la recherche si un terme est déjà présent
-                if (isset($_GET['search']) && $_GET['search'] !== ''):
-                ?>
-                    <a href="index.php" class="clear-search-button">X</a>
-                <?php endif; ?>
-            </form>
-        </div>
         <div class="catalogue">
             <?php
             // --- Affichage des résultats (ou du message d'absence de résultats) ---
@@ -69,7 +64,7 @@ require("disconnect.php");
             <?php else: ?>
                 <?php foreach ($wines as $wine): ?>
                     <div class="expandable-wine-card">
-                        <div class="wine-card" onmouseover="playSound()">
+                        <div class="wine-card">
                             <img src="assets/images/<?php echo htmlspecialchars($wine['image']); ?>" alt="<?php echo htmlspecialchars($wine['name']); ?>">
                             <div class="wine-info">
                                 <h3><?php echo htmlspecialchars($wine['name']); ?></h3>
@@ -109,9 +104,48 @@ require("disconnect.php");
         </div>
     </section>
 
-    <audio id="scroll-sound">
-        <source src="assets/sounds/scroll.mp3" type="audio/mpeg">
-    </audio>
+
+    <section class="carousel-wines" id="promo">
+        <h2>PROMOTIONS - 30%</h2>
+        <div class="carousel-wine-track" id="carouselTrack">
+            <!-- <?php foreach ($wines as $wine): ?> -->
+            <div class="wine-card in-carousel">
+                <img src="assets/images/<?php echo htmlspecialchars($wine['image']); ?>" alt="<?php echo htmlspecialchars($wine['name']); ?>">
+                <div class="wine-info">
+                    <h3><?php echo htmlspecialchars($wine['name']); ?></h3>
+                    <p><?php echo htmlspecialchars($wine['price']); ?> €</p>
+                    <div class="wine-actions">
+                        <form action="add-to-cart.php" method="post" class="add-to-cart-form">
+                            <input type="hidden" name="id" value="<?php echo $wine['id']; ?>">
+                            <div class="quantity-selector">
+                                <div class="quantity-display" onclick="toggleMenu(this)">
+                                    <span class="selected-quantity">1</span>
+                                    <span class="arrow"></span>
+                                </div>
+                                <input type="hidden" name="quantity" class="hidden-quantity-input" value="1">
+                                <div class="quantity-list" id="quantity-menu-<?php echo $wine['id']; ?>">
+                                    <button type="button" onclick="selectQuantity(1, this)">1</button>
+                                    <button type="button" onclick="selectQuantity(2, this)">2</button>
+                                    <button type="button" onclick="selectQuantity(3, this)">3</button>
+                                    <button type="button" onclick="selectQuantity(6, this)">6</button>
+                                    <button type="button" onclick="selectQuantity(12, this)">12</button>
+                                    <div class="quantity-input-container">
+                                        <input type="number" id="other-quantity-input-<?php echo $wine['id']; ?>"
+                                            placeholder="Autre" min="1" onchange="selectQuantity(this.value, this)">
+                                    </div>
+                                </div>
+                                <button type="submit" class="button-add-to-cart">AJOUTER</button>
+                            </div>
+                        </form>
+                        <a href="product.php?id=<?php echo $wine['id']; ?>" class="button-view-product">Voir le produit</a>
+                    </div>
+                    <p class="review-product"><?php echo htmlspecialchars($wine['avis']); ?></p>
+                </div>
+            </div>
+            <!-- <?php endforeach; ?> -->
+        </div>
+        <button class="carousel-button prev">&#10094;</button> <button class="carousel-button next">&#10095;</button>
+    </section>
 
     <section id="addToCartModal" class="modal">
         <div class="modal-content">
@@ -127,7 +161,18 @@ require("disconnect.php");
     </section>
 </main>
 
-<script src="assets/js/dropdown.js"></script>
-<script src="assets/js/index.js"></script>
 
 <?php include 'footer.php'; ?>
+<script>
+    // Injecte les données des vins depuis PHP dans JavaScript
+    const wineCardsData = <?php echo json_encode($carouselWines); ?>;
+
+    wineCardsData.forEach(wine => {
+        wine.image = 'assets/images/' + wine.image;
+        wine.price = wine.price + ' €';
+    });
+</script>
+
+<script src="assets/js/dropdown.js"></script>
+<script src="assets/js/carousel.js"></script>
+<script src="assets/js/index.js"></script>

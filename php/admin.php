@@ -1,6 +1,12 @@
 <?php
 session_start(); // Assure que la session est démarrée avant d'accéder à $_SESSION
 
+// Verifie si admin est connecté, si non renvoit vers la page de connexion
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header('Location: admin-login.php');
+    exit;
+}
+
 require_once 'connect.php';
 
 // Calcule le nombre total de produits dans le panier

@@ -31,7 +31,7 @@ require("disconnect.php");
     <link rel="stylesheet" href="assets/css/fonts.css">
 </head>
 
-<body>
+<body class="body-pink">
     <main>
         <div class="update-product">
             <h2>Modifier un produit</h2>
@@ -50,6 +50,8 @@ require("disconnect.php");
             <a class="button-back" href="admin.php">Retour</a>
         </div>
     </main>
+    <button id="changeBackground" data-title="Changer le fond d'écran"><img src="assets/images/bg-changeBtn.svg" alt="Changer le fond d'écran"></button>
+    <script src="assets/js/changeBg.js"></script>
 
 </body>
 
