@@ -34,7 +34,7 @@ $wines = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <main>
-    <div class="admin-actions">
+    <section class="admin-actions">
         <h2>Gestion des produits</h2>
         <a href="add-product.php" class="button-add-product">Ajouter un produit</a>
         <table>
@@ -50,7 +50,7 @@ $wines = $query->fetchAll(PDO::FETCH_ASSOC);
                     <td><?php echo htmlspecialchars($wine['name']); ?></td>
                     <td><?php echo htmlspecialchars($wine['price']); ?> €</td>
                     <td class="button-update-delete">
-                        <a href="update-product.php?id=<?php echo $wine['id']; ?>" class="button-update">Modifier</a> |
+                        <a href="update-product.php?id=<?php echo $wine['id']; ?>" class="button-update">Modifier</a>
                         <form class="delete-item-form" method="post">
                             <input type="hidden" name="id" value="<?php echo $wine['id']; ?>">
                             <input type="hidden" name="item_name" value="<?php echo htmlspecialchars($wine['name']); ?>">
@@ -63,8 +63,9 @@ $wines = $query->fetchAll(PDO::FETCH_ASSOC);
                 </tr>
             <?php endforeach; ?>
         </table>
-    </div>
-    <div id="deleteConfirmationModal" class="modal">
+    </section>
+
+    <section id="deleteConfirmationModal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
             <h3>Confirmer la suppression</h3>
@@ -75,7 +76,7 @@ $wines = $query->fetchAll(PDO::FETCH_ASSOC);
                 <button id="cancelDeleteButton" class="button-cancel">Annuler</button>
             </div>
         </div>
-    </div>
+    </section>
 </main>
 
 <script src="assets/js/admin.js"></script>

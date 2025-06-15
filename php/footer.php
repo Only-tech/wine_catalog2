@@ -15,8 +15,9 @@
         <div class="links">
             <h3>Liens Rapides</h3>
             <ul>
-                <li><a href="#">Accueil</a></li>
+                <li><a href="index.php">Accueil</a></li>
                 <li><a href="index.php#promo">Promo</a></li>
+                <li><a href="cart.php">Panier</a></li>
                 <li><a href="#">Politique de Confidentialité</a></li>
                 <li><a href="#">Termes et Conditions</a></li>
             </ul>
@@ -67,6 +68,7 @@
 
 <script src="assets/js/onTopButton.js"></script>
 <script src="assets/js/changeBg.js"></script>
+<script src="assets/js/navBar.js"></script>
 
 </body>
 

@@ -6,15 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalogue de Vin : L’art de savourer le temps</title>
     <link rel="stylesheet" href="assets/css/fonts.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Allison&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body class="body-pink">
+<body>
     <header>
+        <button id="burgerBtn" class="burger-button">☰</button>
         <a href="index.php" class="website-name" title="L'art de savourer le temps : un vin, une histoire"><span>🍇🍷 </span>L’art de savourer le temps</a>
 
         <form action="index.php" method="get" class="search-form">
@@ -35,13 +33,11 @@
         </form>
 
         <nav class="menu">
-            <ul>
+            <ul class="mobile-menu">
                 <li><a href="index.php">Accueil</a></li>
                 <li><a href="index.php#promo">Promo</a></li>
-                <li>
-                    <a href="cart.php" class="cart"><img src="assets/images/cart-logo.svg" alt="cart" title="Panier"><span id="cart-item-count" class="cart-count"><?php echo isset($cart_item_count) ? $cart_item_count : 0; ?></span></a>
-                </li>
             </ul>
+            <a href="cart.php" class="cart"><img src="assets/images/cart-logo.svg" alt="cart" title="Panier"><span id="cart-item-count" class="cart-count"><?php echo isset($cart_item_count) ? $cart_item_count : 0; ?></span></a>
         </nav>
 
     </header>

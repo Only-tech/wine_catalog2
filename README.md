@@ -2,6 +2,8 @@
 
 Ce projet est une application web simple de type catalogue de vins intitulé **L’art de savourer le temps**, développée en utilisant HTML, CSS, PHP et PostgreSQL. Elle permet d'afficher une liste de vins, de consulter les détails de chaque vin et d'ajouter les vins au panier, Elle dispose également d'une interface d'administration pour ajouter, modifier et supprimer des produits.
 
+---
+
 ## Fonctionnalités
 
 - **Page d'accueil (Catalogue)**:
@@ -22,9 +24,13 @@ Ce projet est une application web simple de type catalogue de vins intitulé **L
 - **Interface pour valider la commande (Panier)**:
   - Affiche les vin (nom du produit, description, image, prix) ajoutés au panier.
 
+---
+
 ## Implémentations
 
 - **Modale Confirmation avant suppression**: Une boîte de dialogue de confirmation apparaît avant la suppression d'un produit dans l'interface d'administration, l'interface du panier et l'ajout d'un produit dans le panier.
+
+---
 
 ## Structure du projet
 
@@ -38,6 +44,8 @@ Ce projet est une application web simple de type catalogue de vins intitulé **L
     │ ├── connect.php
     │ ├── disconnect.php
     │ ├── index.php ➜ Page d’accueil (Catalogue)
+    │ ├── admin-login.php ➜ Page de connexion administrateur
+    │ ├── admin-logout.php ➜ Déconnexion administrateur
     │ ├── admin.php ➜ Page d’administration pour gérer les produits
     │ ├── add-product.php ➜ Ajout d’un produit
     │ ├── delete-product.php ➜ Suppression d’un produit
@@ -57,9 +65,20 @@ Ce projet est une application web simple de type catalogue de vins intitulé **L
 
     ```
 
+---
+
 ## Technologies
 
 - **Docker**: L'environnement est configuré via Docker Compose, incluant un serveur web Apache/PHP et une base de données **PostgreSQL**.
+- **PostgreSQL**.
+- **PHP**
+- **HTML5**
+- **CSS3**
+- **JavaScript**
+- **Paint**
+- **Node js**
+
+---
 
 ## Installation et Lancement du Projet
 
@@ -88,7 +107,7 @@ Docker et Docker Compose
 3.  **Accéder à l'application**:
 
     - Le catalogue de vins sera accessible à l'adresse : `http://localhost:8090/`
-    - L'interface administrateur du site : `http://localhost:8091/`
+    - L'interface administrateur du site : `http://localhost:8090/admin.php`
     - L'interface d'administration pgAdmin : `http://localhost:8091/`
 
 4.  **Arrêter les conteneurs Docker**:
@@ -106,9 +125,19 @@ Docker et Docker Compose
     docker-compose down -v
     ```
 
+---
+
 ## Utilisation
 
-1.  **Ajouter des vins**: Rendez-vous sur l'interface d'administration (`http://localhost/admin/add_product.php`) pour ajouter vos premiers vins au catalogue.
-2.  **Parcourir le catalogue**: Une fois les vins ajoutés, retournez à la page d'accueil (`http://localhost/`) pour les visualiser.
+1.  **Ajouter des vins**: Rendez-vous sur l'interface d'administration (`http://localhost:8090/add_product.php`) pour ajouter vos premiers vins au catalogue.
+2.  **Parcourir le catalogue**: Une fois les vins ajoutés, retournez à la page d'administration (`http://localhost:8090/admin.php`) pour les visualiser.
 3.  **Voir les détails**: Cliquez sur "Voir le produit" sur une carte de vin pour afficher sa page de détail.
 4.  **Gérer les vins**: Dans l'interface d'administration, vous pouvez modifier ou supprimer les vins existants.
+
+---
+
+## Crédits
+
+- **Design et Développement** : Cedrick F.
+
+---

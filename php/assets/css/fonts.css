@@ -1,10 +1,9 @@
 @font-face {
-    font-family: 'allison-regular';
-    src: url('../fonts/Allison/Allison-Regular.ttf') format('woff2'),
-         url('../fonts/Allison/Allison-Regular.ttf') format('woff'),
-         url('../fonts/Allison/Allison-Regular.ttf') format('truetype');
+    font-family: 'Allison';
+    src: url('/assets/fonts/Allison/Allison-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
-
 
 @font-face {
     font-family: 'montserrat-regular';

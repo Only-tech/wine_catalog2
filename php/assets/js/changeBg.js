@@ -19,7 +19,7 @@ document.getElementById('changeBackground').addEventListener('click', () => {
 
 const cardColors = ["rgba(247, 191, 214, 0.95)", "rgba(141, 140, 140, 0.95)", "rgba(255, 255, 255, 0.95)"]; // Associe chaque fond à une couleur
 
-const productCards = document.querySelectorAll('.expandable-wine-card, .in-carousel, .admin-actions table, .cart-actions table, .modal-content, .no-results-message');
+const productCards = document.querySelectorAll('.expandable-wine-card, .in-carousel, .admin-actions table, .cart-actions table, .modal-content, .no-results-message, .product-card');
 
 // Applique la couleur des cartes selon l'index enregistré
 if (localStorage.getItem('bgIndex')) {

@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     cards.forEach(card => {
         card.addEventListener("mouseenter", () => {
-            // sound.currentTime = 0;
+            sound.currentTime = 0;
             sound.play();
         });
     });
