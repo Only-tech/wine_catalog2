@@ -84,7 +84,7 @@ if (!$wine) {
                         echo strip_tags($formatted_description, '<br><strong><b>');
                         ?>
                     </p>
-                    <p><br><br><strong>👇 Ce que nos clients pensent de ce produit 👇</strong><br></p>
+                    <p><strong>Ce que nos clients pensent de ce produit 👇</strong><br></p>
                     <p><br><?php echo htmlspecialchars($wine['avis']); ?></p>
                 </div>
 

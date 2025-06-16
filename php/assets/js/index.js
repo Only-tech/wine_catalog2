@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
     //  Code pour le son au survol/
-    const sound = new Audio("assets/sounds/sound-card-mouse-enter.m4a");
-    const cards = document.querySelectorAll(".wine-card");
+    // const sound = new Audio("assets/sounds/sound-card-mouse-enter.m4a");
+    // const cards = document.querySelectorAll(".wine-card");
 
-    cards.forEach(card => {
-        card.addEventListener("mouseenter", () => {
-            sound.currentTime = 0;
-            sound.play();
-        });
-    });
+    // cards.forEach(card => {
+    //     card.addEventListener("mouseenter", () => {
+    //         sound.currentTime = 0;
+    //         sound.play();
+    //     });
+    // });
     //  FIN du code pour le son au survol
 
     //  DEBUT du code pour l'ajout au panier AJAX et le modal 
